@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Balle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/player/sprite/spaceship.png" type="Texture" id=3]
+
+[node name="Player" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+balle = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -4.24265, 4.24265 )
+rotation = -1.5708
+scale = Vector2( 0.2, 0.2 )
+z_as_relative = false
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 2.62203, 0.374577 )
+rotation = 1.5708
+polygon = PoolVector2Array( 4.4884, -33.2438, -44.5452, 40.9499, 5.7161, 43.7813, 51.73, 42.1294 )
+
+[node name="Canon" type="Position2D" parent="."]
+position = Vector2( 64, 0 )

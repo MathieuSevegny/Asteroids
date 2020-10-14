@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/Asteroid.gd" type="Script" id=1]
+[ext_resource path="res://assets/astroids/sprite/53-539113_pixel-asteroid-sprite-sheet.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 99, 99 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[node name="BigAsteroid" type="KinematicBody2D"]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource( 1 )
+vitesse = 95
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+light_mask = 2
+position = Vector2( 3.91094, 4.27679 )
+scale = Vector2( 6.91937, 4.8565 )
+polygon = PoolVector2Array( -0.373588, -14.0347, -4.89457, -12.036, -7.51198, -11.5747, -10.9622, -3.27244, -11.0812, 0.417479, -10.2484, 3.7999, -5.72738, 10.1035, -4.18073, 12.5634, 4.14739, 12.7172, 6.52686, 11.1797, 7.59762, 8.87353, 9.62016, 7.18232, 10.215, 3.64615, 9.26324, -2.34996, 6.7648, -9.88353 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 28.9378, 12.3874 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 2 )
+playing = true
